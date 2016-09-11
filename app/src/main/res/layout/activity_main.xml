@@ -237,6 +237,13 @@
             android:layout_below="@+id/checkBoxEnable"
             android:text="SEND" />
 
+        <TextView
+            android:id="@+id/textViewHasil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="Hasil" />
+
         <Space
             android:layout_width="20px"
             android:layout_height="20px"
@@ -245,15 +252,6 @@
             android:layout_alignParentStart="true"
             android:layout_alignRight="@+id/editTextNama"
             android:layout_alignTop="@+id/textView2" />
-
-        <TextView
-            android:id="@+id/textViewHasil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/buttonSend"
-            tools:text="Hasil" />
 
     </LinearLayout>
 

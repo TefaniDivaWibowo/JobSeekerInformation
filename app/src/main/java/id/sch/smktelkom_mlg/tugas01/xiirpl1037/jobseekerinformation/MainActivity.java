@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etNama, etPhone, etAlamat, etEmail;
     CheckBox cbFem, cbMa, cbEm, cbEnab;
     Spinner spLokasi;
+    RadioButton rbYes, rbNo;
     Button bSend;
     TextView tvHasil;
 
@@ -33,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         cbEnab = (CheckBox) findViewById(R.id.checkBoxEnable);
 
         spLokasi = (Spinner) findViewById(R.id.spinnerLocation);
+
+        rbYes = (RadioButton) findViewById(R.id.radioButtonYes);
+        rbNo = (RadioButton) findViewById(R.id.radioButtonNo);
 
         bSend = (Button) findViewById(R.id.buttonSend);
 
@@ -65,13 +70,32 @@ public class MainActivity extends AppCompatActivity {
 
             if (hasilGen.length() == startlen) hasilGen += "-";
 
+            String hasilPil = "You Choose: ";
+
+            int startlen2 = hasilPil.length();
+
+            if (cbEm.isChecked()) hasilPil += cbEm.getText() + "\n";
+            if (cbEnab.isChecked()) hasilPil += cbEnab.getText() + "\n";
+
+            if (hasilPil.length() == startlen2) hasilPil += "-";
+
+            String hasilYN = "Willing Go Abroad: ";
+
+            if (rbYes.isChecked()) {
+                hasilYN += rbYes.getText().toString();
+            } else if (rbNo.isChecked()) {
+                hasilYN += rbNo.getText().toString();
+            }
+
             tvHasil.setText("Your JobSeeker Profile\n\n" +
                     "Name: " + nama + "\n" +
                     hasilGen +
                     "Phone Number: " + phone + "\n" +
-                    "Current Location: " + spLokasi.getSelectedItem().toString() +
+                    "Current Location: " + spLokasi.getSelectedItem().toString() + "\n" +
                     "Address: " + alamat + "\n" +
-                    "Email: " + email + "\n");
+                    hasilYN + "\n" +
+                    "Email: " + email + "\n" +
+                    hasilPil);
         }
     }
 
@@ -97,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
         if (phone.isEmpty()) {
             etPhone.setError("Enter your phone number");
             valid = false;
-        } else if (phone.length() != 10) {
-            etPhone.setError("Phone number format is +(telephon code of your region) yournumber");
+        } else if (phone.length() < 10) {
+            etPhone.setError("Phone number at least 10 numbers");
             valid = false;
         } else {
             etPhone.setError(null);
