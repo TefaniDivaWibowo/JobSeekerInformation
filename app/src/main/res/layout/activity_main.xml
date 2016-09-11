@@ -86,16 +86,36 @@
             android:layout_alignRight="@+id/textView2"
             android:text="Male" />
 
-        <EditText
-            android:id="@+id/editTextPhone"
-            android:layout_width="351dp"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="351dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/checkBoxFemale"
+                android:hint="Phone Number"
+                android:inputType="numberSigned" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/checkBoxFemale"
-            android:inputType="numberSigned" />
+            android:layout_below="@+id/editTextAlamat"
+            android:layout_toLeftOf="@+id/radioGroup"
+            android:layout_toStartOf="@+id/radioGroup"
+            android:text="Current Location"
+            android:textAlignment="center"
+            android:textSize="@dimen/abc_action_bar_content_inset_material" />
 
         <Spinner
             android:id="@+id/spinnerLocation"
@@ -103,17 +123,25 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/editTextPhone" />
+            android:layout_below="@+id/editTextPhone"
+            android:entries="@array/lokasi" />
 
-        <EditText
-            android:id="@+id/editTextAlamat"
-            android:layout_width="351dp"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/spinnerLocation"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/spinnerLocation"
-            android:layout_below="@+id/spinnerLocation" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editTextAlamat"
+                android:layout_width="351dp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/spinnerLocation"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/spinnerLocation"
+                android:layout_below="@+id/spinnerLocation"
+                android:hint="Address" />
+
+        </android.support.design.widget.TextInputLayout>
 
         <TextView
             android:id="@+id/textView3"
@@ -162,16 +190,23 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.44" />
 
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="351dp"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/editTextAlamat"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/editTextAlamat"
-            android:layout_below="@+id/radioButtonYes"
-            android:inputType="textEmailAddress" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="351dp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/editTextAlamat"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/editTextAlamat"
+                android:layout_below="@+id/radioButtonYes"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+        </android.support.design.widget.TextInputLayout>
 
         <CheckBox
             android:id="@+id/checkBoxEmail"

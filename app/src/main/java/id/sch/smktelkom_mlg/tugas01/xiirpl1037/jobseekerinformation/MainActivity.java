@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         cbEm = (CheckBox) findViewById(R.id.checkBoxEmail);
         cbEnab = (CheckBox) findViewById(R.id.checkBoxEnable);
 
+        spLokasi = (Spinner) findViewById(R.id.spinnerLocation);
+
         bSend = (Button) findViewById(R.id.buttonSend);
 
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
@@ -48,5 +50,74 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doProses() {
+        if (isValid()) {
+            String nama = etNama.getText().toString();
+            String phone = etPhone.getText().toString();
+            String alamat = etAlamat.getText().toString();
+            String email = etEmail.getText().toString();
+
+            String hasilGen = "Gender: ";
+
+            int startlen = hasilGen.length();
+
+            if (cbFem.isChecked()) hasilGen += cbFem.getText() + "\n";
+            if (cbMa.isChecked()) hasilGen += cbMa.getText() + "\n";
+
+            if (hasilGen.length() == startlen) hasilGen += "-";
+
+            tvHasil.setText("Your JobSeeker Profile\n\n" +
+                    "Name: " + nama + "\n" +
+                    hasilGen +
+                    "Phone Number: " + phone + "\n" +
+                    "Current Location: " + spLokasi.getSelectedItem().toString() +
+                    "Address: " + alamat + "\n" +
+                    "Email: " + email + "\n");
+        }
+    }
+
+    private boolean isValid() {
+
+        boolean valid = true;
+
+        String nama = etNama.getText().toString();
+        String phone = etPhone.getText().toString();
+        String alamat = etAlamat.getText().toString();
+        String email = etEmail.getText().toString();
+
+        if (nama.isEmpty()) {
+            etNama.setError("Enter your name");
+            valid = false;
+        } else if (nama.length() < 3) {
+            etNama.setError("Al least must be 3 characters");
+            valid = false;
+        } else {
+            etNama.setError(null);
+        }
+
+        if (phone.isEmpty()) {
+            etPhone.setError("Enter your phone number");
+            valid = false;
+        } else if (phone.length() != 10) {
+            etPhone.setError("Phone number format is +(telephon code of your region) yournumber");
+            valid = false;
+        } else {
+            etPhone.setError(null);
+        }
+
+        if (alamat.isEmpty()) {
+            etAlamat.setError("Enter your address");
+            valid = false;
+        } else {
+            etAlamat.setError(null);
+        }
+
+        if (email.isEmpty()) {
+            etEmail.setError("Enter your name");
+            valid = false;
+        } else {
+            etEmail.setError(null);
+        }
+
+        return valid;
     }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lokasi">
+        <item>Brunei Darussalam</item>
+        <item>Indonesia</item>
+        <item>Malaysia</item>
+        <item>Singapore</item>
+        <item>Timor Leste</item>
+    </string-array>
+</resources>
